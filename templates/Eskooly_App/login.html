@@ -1,0 +1,295 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			background:#74cfbf  !important;
+		}
+		.user_card {
+			width: 350px;
+      height: 400px;
+			margin-top: auto;
+			margin-bottom: auto;
+			background: #7abecc;
+			position: relative;
+			display: flex;
+			justify-content: center;
+		  flex-direction: column;
+			padding: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+
+		}
+
+		.form_container {
+			margin-top: 20px;
+		}
+
+		#form-title{
+			color: #fff;
+
+		}
+
+		.login_btn {
+			width: 100%;
+			color: white !important;
+		}
+		.login_btn:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+		.login_container {
+			padding: 0 2rem;
+		}
+		.input-group-text {
+			background: #4969a3 !important;
+			color: white !important;
+			border: 0 !important;
+			border-radius: 0.25rem 0 0 0.25rem !important;
+		}
+		.input_user,
+		.input_pass:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+
+		#messages{
+			background-color: grey;
+			color: #fff;
+			padding: 10px;
+			margin-top: 10px;
+		}
+    .fa-lock{
+      margin-right:2%;
+    }
+    .firstimg{
+      margin-top:1px;
+      margin-left:-6px;
+    }
+    h5{
+      font-size:15px;
+      margin-left:-11%;
+      margin-top:-7%;
+      color:white;
+      text-decoration:none;
+    }
+    a:hover{
+      text-decoration:none;
+    }
+    #adlog{
+      border:1px solid white;
+      width:80px;
+      height:80px;
+      margin-top:8%;
+      margin-left:7%;
+      border-radius:100px;
+      background: none;
+      transition: background 1s;
+    }
+    #adlog:hover{
+      background:#174cad;
+    }
+    #telog{
+      border:1px solid white;
+      width:80px;
+      height:80px;
+      margin-top:-23.5%;
+      margin-left:38%;
+      border-radius:100px;
+      background: none;
+      transition: background 1s;
+    }
+    #telog:hover{
+      background:#174cad;
+    }
+    .secondimg{
+      height:40px;
+      margin-top:3px;
+      margin-left:-3px;
+    }
+    #teach{
+      margin-left:-18%;
+    }
+
+    #stlog{
+      border:1px solid white;
+      width:80px;
+      height:80px;
+      margin-top:-23.5%;
+      margin-left:69%;
+      border-radius:100px;
+      background: none;
+      transition: background 1s;
+    }
+    #stlog:hover{
+      background:#174cad;
+    }
+    .thirdimg{
+      height:40px;
+      margin-top:3px;
+      margin-left:-3px;
+    }
+    #stdnt{
+      margin-left:-18%;
+    }
+    #loginform{
+      font-weight:bold;
+      color:white;
+      text-align:center;
+    }
+    .loginhead{
+      background:rgba(0,0,0,0.2);
+    }
+    .fa-registered{
+      color:white;
+      margin-top:1.3%;
+      margin-right:1%;
+      margin-left:1%;
+    }
+    #signup{
+      color:white;
+      font-weight:bold;
+    }
+	</style>
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      $("#adminform").hide();
+      $("#teacherform").hide();
+      $("#studentform").hide();
+      $("#dhvacc").hide();
+      $("#adlog").click(function(){
+        $("#adminform").show();
+        $("#teacherform").hide();
+        $("#studentform").hide();
+        $("#dhvacc").show();
+      });
+      $("#telog").click(function(){
+        $("#adminform").hide();
+        $("#teacherform").show();
+        $("#studentform").hide();
+        $("#dhvacc").hide();
+      });
+      $("#stlog").click(function(){
+        $("#adminform").hide();
+        $("#teacherform").hide();
+        $("#studentform").show();
+        $("#dhvacc").hide();
+      });
+
+});
+  </script>
+
+</head>
+<body>
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+        <div class="loginhead">
+          <h3 id="loginform">Log in Form</h3>
+        </div>
+			<button id="adlog">	<div class="container adminlogo"><a href="#">
+          <img class="firstimg" src="{% static "Images/admin48.png" %}" alt="admin Image">
+          <h5>Admin</h5>
+          </a>
+        </div></button>
+        <button id="telog">	<div class="container teacherlogo"><a href="#">
+            <img class="secondimg" src="{% static "Images/teacher.png" %}" alt="teacher Image">
+            <h5 id="teach">Teacher</h5>
+            </a>
+          </div></button>
+          <button id="stlog">	<div class="container studentlogo"><a href="#">
+              <img class="thirdimg" src="{% static "Images/student.png" %}" alt="student Image">
+              <h5 id="stdnt">Student</h5>
+              </a>
+            </div></button>
+				<div class="d-flex justify-content-center form_container">
+					<form id="adminform" method="POST" action="">
+            {% csrf_token %}
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input type="text" name="username" placeholder="Username" class="form-control">
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-lock"></i></span>
+							</div>
+								<input type="password" name="password" placeholder="Password" class="form-control" >
+						</div>
+
+							<div class="d-flex justify-content-center mt-3 login_container">
+				 				<button class="btn login_btn btn btn-danger" type="submit"><i class="fa fa-lock"></i>Sign In</button>
+				   			</div>
+					</form>
+          <form id="teacherform" method="POST" action="">
+            {% csrf_token %}
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input type="text" name="username" placeholder="Teacher Id" class="form-control">
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-lock"></i></span>
+							</div>
+								<input type="password" name="password" placeholder="Password" class="form-control" >
+						</div>
+
+							<div class="d-flex justify-content-center mt-3 login_container">
+				 				<button class="btn login_btn btn btn-danger" type="submit"><i class="fa fa-lock"></i>Sign In</button>
+				   			</div>
+					</form>
+          <form id="studentform" method="POST" action="">
+            {% csrf_token %}
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input type="text" name="username" placeholder="Student Id" class="form-control">
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-lock"></i></span>
+							</div>
+								<input type="password" name="password" placeholder="Password" class="form-control" >
+						</div>
+
+							<div class="d-flex justify-content-center mt-3 login_container">
+				 				<button class="btn login_btn btn btn-danger" type="submit"><i class="fa fa-lock"></i>Sign In</button>
+				   			</div>
+					</form>
+				</div>
+        {% for message in messages %}
+        <p id="messages">{{message}}</p>
+        {%endfor%}
+				<div class="mt-4" id="dhvacc">
+					<div class="d-flex justify-content-center links">
+						Don't have an account?<i class="fa fa-registered" aria-hidden="true"></i><a id="signup" href="#">SignUp</a>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

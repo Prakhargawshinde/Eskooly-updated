@@ -1,0 +1,57 @@
+{% extends 'Eskooly_App/adminview.html' %}
+{% load static%}
+{% block parentblock %}
+<style media="screen">
+  body{
+    background-color:#c4c4c4;
+  }
+  h1{
+    padding-top:3%;
+    text-align: center;
+    font-weight: bold;
+  }
+  .just{
+    margin-left:38%;
+    margin-top:3%;
+  }
+  .container{
+    background:white;
+    width:74%;
+    height:300px;
+    margin-left:24%;
+  }
+  #id_Name_of_class{
+    margin-top:5%;
+    border:1px solid #c4c4c4;
+    border-radius:5px;
+    width:50%;
+    margin-left:20%;
+  }
+  #id_Monthly_fees{
+    width:50%;
+    border:1px solid #c4c4c4;
+    border-radius:5px;
+    margin-left:20%;
+  }
+</style>
+<body>
+<div class="container">
+<h1 >Add A New Class</h1>
+{%if msg%}
+  <div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{{msg}}</strong>
+  </div>
+{%endif%}
+<div class="row justify-content-center">
+<div class="col-lg-6">
+<form  method="post" enctype="multipart/form-data">
+{{Classes_entry.as_p}}
+{%csrf_token%}
+<input type="submit" class="btn btn-primary just" value="Submit">
+</form>
+</div>
+</div>
+</div>
+</body>
+{%endblock%}

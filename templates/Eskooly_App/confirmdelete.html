@@ -1,0 +1,34 @@
+{% extends 'Eskooly_App/adminview.html' %}
+{% load static%}
+{% block parentblock %}
+<style media="screen">
+  .container{
+
+    margin-left:30%;
+  }
+  .btn-success{
+    margin-left:30%;
+    margin-top:-7%;
+    align:center;
+    width:150px;
+    height:50px;
+  }
+  .btn-danger{
+    margin-top:2%;
+    margin-left:11%;
+    width:150px;
+    height:50px;
+  }
+
+</style>
+<body>
+<div class="container">
+<h1>Do You Want To Delete {{class_list.Name_of_class}} ?</h1>
+<form method="post">
+  {%csrf_token%}
+<input class="btn btn-danger" type="submit" name="" value="Delete">
+</form>
+<a href="/All_Class"><input class="btn btn-success" type="submit" name="" value="Cancel"></a>
+</div>
+</body>
+{%endblock%}
